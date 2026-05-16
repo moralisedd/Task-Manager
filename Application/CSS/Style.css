@@ -134,7 +134,7 @@ sidebar .flex-container > div {
   justify-content: space-between;
   align-items: center;
   height: 239px;
-  width: 171.22vh;
+  width: 100%;
 }
 
 .TSM-icon {
@@ -152,7 +152,7 @@ sidebar .flex-container > div {
 .Settings-icon {
   align-self: baseline;
   flex-basis: 70px;
-  margin-left: 1100px;
+  margin-left: auto;
 }
 
 /*------------------------------------------ Personal Page Top Bar CSS --------------------------------------------------------------- */
@@ -205,7 +205,7 @@ sidebar .flex-container > div {
 /* Form */
 .share-container > div > form {
   border-radius: 5px;
-  padding: px;
+  padding: 8px;
 }
 
 input[type="text"] {
@@ -591,9 +591,8 @@ button:hover {
   justify-content: space-between;
   align-items: center;
 
-  width: 1920px;
+  width: 100%;
   padding: 20px;
-  padding-right: 690px;
 }
 
 .HeaderTitle > h1 {
@@ -632,6 +631,274 @@ button:hover {
 /*------------------------------------------ Settings Page CSS --------------------------------------------------------------- */
 
 /*------------------------------------------ Account Page CSS --------------------------------------------------------------- */
+
+/*------------------------------------------ Task Board CSS --------------------------------------------------------------- */
+
+.task-board {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px 0;
+  overflow-x: auto;
+}
+
+.task-column {
+  background-color: rgb(27, 38, 47);
+  border-radius: 12px;
+  min-width: 260px;
+  max-width: 280px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 10px;
+}
+
+.column-header h3 {
+  color: white;
+  font-size: 1em;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.column-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.add-task-btn {
+  all: unset;
+  color: white;
+  font-size: 1.4em;
+  cursor: pointer;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: background 200ms;
+}
+
+.add-task-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.delete-list-btn,
+.delete-task-btn {
+  all: unset;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 200ms;
+}
+
+.delete-list-btn:hover,
+.delete-task-btn:hover {
+  opacity: 1;
+}
+
+.inline-form {
+  display: inline;
+}
+
+.task-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.empty-list-msg {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.85em;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.task-card {
+  background-color: rgb(17, 26, 33);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-left: 3px solid transparent;
+}
+
+/* Priority colour coding on the left border */
+.task-card.priority-urgent    { border-left-color: rgb(220, 53, 69); }
+.task-card.priority-important { border-left-color: rgb(255, 193, 7); }
+.task-card.priority-low       { border-left-color: rgb(40, 167, 69); }
+
+.task-name {
+  color: white;
+  font-size: 0.95em;
+  font-weight: 600;
+}
+
+.task-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+}
+
+.task-due {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.78em;
+}
+
+.task-priority {
+  font-size: 0.72em;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.badge-urgent    { background-color: rgba(220, 53, 69, 0.25);  color: rgb(255, 120, 130); }
+.badge-important { background-color: rgba(255, 193, 7, 0.2);   color: rgb(255, 213, 80); }
+.badge-low       { background-color: rgba(40, 167, 69, 0.2);   color: rgb(80, 200, 110); }
+
+.task-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.progress-select {
+  flex: 1;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-size: 0.8em;
+  cursor: pointer;
+  font-family: "Decagram";
+}
+
+.progress-label {
+  font-size: 0.8em;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.status-not-started  { background-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
+.status-in-progress  { background-color: rgba(60,120,183,0.3);  color: rgb(130,180,255); }
+.status-completed    { background-color: rgba(40,167,69,0.2);   color: rgb(80,200,110); }
+
+.add-task-form {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.add-task-form.open {
+  display: flex;
+}
+
+.add-task-form input[type="text"],
+.add-task-form input[type="date"],
+.add-task-form select {
+  width: 100%;
+  padding: 8px 10px;
+  margin: 0;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgb(17, 26, 33);
+  color: white;
+  font-family: "Decagram";
+  font-size: 0.85em;
+}
+
+.add-task-form-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.add-task-form-actions button {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  font-family: "Decagram";
+  margin: 0;
+}
+
+.add-task-form-actions button[type="button"] {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.new-list-column {
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#new-list-btn {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9em;
+  padding: 20px;
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 200ms, color 200ms;
+}
+
+#new-list-btn:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#new-list-form {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  background-color: rgb(27, 38, 47);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+#new-list-form.open {
+  display: flex;
+}
+
+#new-list-form input[type="text"] {
+  width: 100%;
+  padding: 8px 10px;
+  margin: 0;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgb(17, 26, 33);
+  color: white;
+  font-family: "Decagram";
+}
+
+.collab-empty {
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 1em;
+}
+
+/*------------------------------------------ Task Board CSS --------------------------------------------------------------- */
 
 .Account-form-container {
   display: flex;

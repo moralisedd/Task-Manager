@@ -14,7 +14,7 @@
         <main>
             <div class="username-container">
                 <div class="Form-box">
-                    <form action="ProcessLogin.php" method="post">
+                    <form action="process/login.php" method="post">
                         <div class="imgcontainer">
                             <img src="Assets/Login Icon.webp" alt="Avatar" class="avatar">
                         </div>
@@ -37,7 +37,6 @@
                 </div>
 
                 <?php
-                // Checking if there is an error message in the URL parameters
                 if (isset($_GET['error']) && $_GET['error'] === 'invalid_credentials') {
                     echo '<p style="color: red;">Invalid username, email, or password. Please try again.</p>';
                 }

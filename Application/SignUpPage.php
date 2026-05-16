@@ -12,7 +12,7 @@
 <body class="LSP-body">
     <div class="LSP-main-container">
         <div class="SignUp-container">
-            <form action="ProcessSignUp.php" method="post">
+            <form action="process/signup.php" method="post">
                 <div class="signup-info-container">
                     <h1>Sign Up</h1>
                     <p>Please fill in this form to create an account.</p>
@@ -30,28 +30,27 @@
                     <label for="psw-repeat"><b>Repeat Password</b></label>
                     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
-                    <p id="t-p-text">By creating an account you agree to our <a href="Terms&PrivacyPage.html">Terms &
-                            Privacy</a>.</p>
+                    <p id="t-p-text">By creating an account you agree to our <a href="Terms&amp;PrivacyPage.php">Terms &amp; Privacy</a>.</p>
 
                     <div class="clearfix">
                         <button type="submit" class="signupbtn">Sign Up</button>
                         <a href="LoginPage.php">
-                            <button type="button" class="cancelbtn">Cancel</button></a>
+                            <button type="button" class="cancelbtn">Cancel</button>
+                        </a>
                     </div>
                 </div>
             </form>
 
-            <!-- Displaying error messages -->
             <?php
             if (isset($_GET['error'])) {
-                $error = $_GET['error'];
-                if ($error === 'password_mismatch') {
-                    echo '<p style="color: red;">Passwords do not match. Please try again.</p>';
-                } elseif ($error === 'username_exists') {
-                    echo '<p style="color: red;">Username already exists. Please choose a different one.</p>';
-                } elseif ($error === 'email_exists') {
-                    echo '<p style="color: red;">Email already exists. Please use a different one.</p>';
-                }
+                $errors = [
+                    'password_mismatch' => 'Passwords do not match. Please try again.',
+                    'username_exists'   => 'Username already exists. Please choose a different one.',
+                    'email_exists'      => 'Email already exists. Please use a different one.',
+                    'invalid_email'     => 'Invalid email format.',
+                ];
+                $msg = $errors[$_GET['error']] ?? 'An error occurred. Please try again.';
+                echo '<p style="color: red;">' . htmlspecialchars($msg) . '</p>';
             }
             ?>
         </div>

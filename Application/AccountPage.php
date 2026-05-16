@@ -1,14 +1,11 @@
 <?php
 session_start();
 
-// Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: LoginPage.php");
     exit();
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,8 +22,8 @@ if (!isset($_SESSION['user_id'])) {
         <main>
             <div class="arrow-back_and_Header-container">
                 <div class="back-arrow">
-                    <a href="SettingsPage.html">
-                        <img src="Assets/Back Arrow.webp">
+                    <a href="SettingsPage.php">
+                        <img src="Assets/Back Arrow.webp" alt="Back">
                     </a>
                 </div>
                 <div class="h3-container">
@@ -37,7 +34,7 @@ if (!isset($_SESSION['user_id'])) {
             <div class="Account-form-container">
                 <div class="Form-box">
                     <div class="signup-info-container">
-                        <form action="ProcessChangeDetails.php" method="post">
+                        <form action="process/change-details.php" method="post">
                             <h1>Enter new details</h1>
                             <hr>
 
@@ -57,10 +54,9 @@ if (!isset($_SESSION['user_id'])) {
                                 <button type="submit" class="signupbtn">Update Details</button>
                             </div>
                         </form>
-
                     </div>
                 </div>
-
+            </div>
         </main>
     </div>
 </body>
