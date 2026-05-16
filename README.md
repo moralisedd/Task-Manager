@@ -23,8 +23,6 @@ A PHP/MySQL task management app with personal task boards and collaboration spac
 | user1@tsm.com | User1pass! |
 | guest@tsm.com | GuestPass1! |
 
-> For existing installs: run only the migration block at the bottom of the schema file, not the full import.
-
 ---
 
 ## Folder Structure
